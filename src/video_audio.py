@@ -8,6 +8,9 @@ ffmpeg_path = os.path.join(os.getcwd(), "ffmpeg", "ffmpeg")
 os.environ["IMAGEIO_FFMPEG_EXE"] = ffmpeg_path
 os.environ["FFMPEG_BINARY"] = ffmpeg_path
 
+# DEBUG: confirm it’s where we expect
+print(">> Using ffmpeg at:", ffmpeg_path, "exists?", os.path.exists(ffmpeg_path))
+
 from yt_dlp import YoutubeDL
 # from moviepy.editor import VideoFileClip
 from moviepy import VideoFileClip
