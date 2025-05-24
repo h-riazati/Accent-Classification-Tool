@@ -8,8 +8,8 @@ import subprocess
 # os.environ["IMAGEIO_FFMPEG_EXE"] = ffmpeg_path
 # os.environ["FFMPEG_BINARY"] = ffmpeg_path
 # Ensure PATH includes vendored ffmpeg
-ffmpeg_dir = os.path.join(os.getcwd(), "ffmpeg")
-os.environ["PATH"] = ffmpeg_dir + os.pathsep + os.environ.get("PATH", "")
+ffmpeg_path = os.path.join(os.getcwd(), "ffmpeg")
+os.environ["PATH"] = ffmpeg_path + os.pathsep + os.environ.get("PATH", "")
 
 
 # DEBUG: confirm it’s where we expect
