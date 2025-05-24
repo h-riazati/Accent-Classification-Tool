@@ -1,0 +1,10 @@
+yt-dlp
+moviepy
+torch
+transformers
+numpy
+streamlit
+pytest
+speechbrain
+scipy
+#ffmpeg
