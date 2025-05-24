@@ -7,4 +7,4 @@ streamlit
 pytest
 speechbrain
 scipy
-#ffmpeg
++imageio-ffmpeg
