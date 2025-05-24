@@ -1,8 +1,11 @@
 import os
-import imageio_ffmpeg as ffmpeg
+# import imageio_ffmpeg as ffmpeg
 # Ensure Streamlit uses the bundled ffmpeg binary
-os.environ["IMAGEIO_FFMPEG_EXE"] = ffmpeg.get_ffmpeg_exe()
-os.environ["FFMPEG_BINARY"] = ffmpeg.get_ffmpeg_exe()
+# os.environ["IMAGEIO_FFMPEG_EXE"] = ffmpeg.get_ffmpeg_exe()
+# os.environ["FFMPEG_BINARY"] = ffmpeg.get_ffmpeg_exe()
+ffmpeg_path = os.path.join(os.getcwd(), "ffmpeg", "ffmpeg")
+os.environ["IMAGEIO_FFMPEG_EXE"] = ffmpeg_path
+os.environ["FFMPEG_BINARY"] = ffmpeg_path
 
 import streamlit as st
 import tempfile
@@ -27,7 +30,7 @@ min_time, max_time = st.slider(
 )
 
 # New: TXT file uploader
-txt_file = st.file_uploader("Upload your cookie file:", type="txt")
+# txt_file = st.file_uploader("Upload your cookie file:", type="txt")
 
 
 if st.button("Analyze Accent"):
