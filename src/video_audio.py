@@ -1,20 +1,21 @@
 import os
 import tempfile
 import subprocess
-from yt_dlp import YoutubeDL
 # import imageio_ffmpeg as ffmpeg
 # Ensure MoviePy and ImageIO use the bundled ffmpeg binary
 # os.environ["IMAGEIO_FFMPEG_EXE"] = ffmpeg.get_ffmpeg_exe()
 # os.environ["FFMPEG_BINARY"] = ffmpeg.get_ffmpeg_exe()
-ffmpeg_path = os.path.join(os.getcwd(), "ffmpeg", "ffmpeg")
-os.environ["IMAGEIO_FFMPEG_EXE"] = ffmpeg_path
-os.environ["FFMPEG_BINARY"] = ffmpeg_path
+# Ensure PATH includes vendored ffmpeg
+ffmpeg_dir = os.path.join(os.getcwd(), "ffmpeg")
+os.environ["PATH"] = ffmpeg_dir + os.pathsep + os.environ.get("PATH", "")
+ffmpeg_path = os.path.join(ffmpeg_dir, "ffmpeg")
 
 # DEBUG: confirm it’s where we expect
 print(">> Using ffmpeg at:", ffmpeg_path, "exists?", os.path.exists(ffmpeg_path))
 # from moviepy.config import change_settings
 # change_settings({"FFMPEG_BINARY": ffmpeg_path})
 
+from yt_dlp import YoutubeDL
 # from moviepy.editor import VideoFileClip
 from moviepy import VideoFileClip
 import time

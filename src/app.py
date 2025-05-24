@@ -4,9 +4,13 @@ import subprocess
 # Ensure Streamlit uses the bundled ffmpeg binary
 # os.environ["IMAGEIO_FFMPEG_EXE"] = ffmpeg.get_ffmpeg_exe()
 # os.environ["FFMPEG_BINARY"] = ffmpeg.get_ffmpeg_exe()
-ffmpeg_path = os.path.join(os.getcwd(), "ffmpeg", "ffmpeg")
-os.environ["IMAGEIO_FFMPEG_EXE"] = ffmpeg_path
-os.environ["FFMPEG_BINARY"] = ffmpeg_path
+# ffmpeg_path = os.path.join(os.getcwd(), "ffmpeg", "ffmpeg")
+# os.environ["IMAGEIO_FFMPEG_EXE"] = ffmpeg_path
+# os.environ["FFMPEG_BINARY"] = ffmpeg_path
+# Ensure PATH includes vendored ffmpeg
+ffmpeg_dir = os.path.join(os.getcwd(), "ffmpeg")
+os.environ["PATH"] = ffmpeg_dir + os.pathsep + os.environ.get("PATH", "")
+
 
 # DEBUG: confirm it’s where we expect
 print(">> Using ffmpeg at:", ffmpeg_path, "exists?", os.path.exists(ffmpeg_path))

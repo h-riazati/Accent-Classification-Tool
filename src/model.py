@@ -1,5 +1,7 @@
 import os
-os.environ["HF_HUB_DISABLE_SYMLINKS"] = "1"
+# Ensure PATH includes vendored ffmpeg for transformers
+ffmpeg_dir = os.path.join(os.getcwd(), "ffmpeg")
+os.environ["PATH"] = ffmpeg_dir + os.pathsep + os.environ.get("PATH", "")
 
 from transformers import AutoFeatureExtractor, AutoModelForAudioClassification, pipeline
 from speechbrain.inference import EncoderClassifier

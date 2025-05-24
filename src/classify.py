@@ -1,5 +1,10 @@
 import argparse
 import tempfile
+import os
+# Ensure PATH includes vendored ffmpeg
+ffmpeg_dir = os.path.join(os.getcwd(), "ffmpeg")
+os.environ["PATH"] = ffmpeg_dir + os.pathsep + os.environ.get("PATH", "")
+
 from video_audio import download_video, extract_audio
 from model import classify_accent, MODEL_OPTIONS
 import os
