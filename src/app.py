@@ -1,3 +1,9 @@
+import os
+import imageio_ffmpeg as ffmpeg
+# Ensure Streamlit uses the bundled ffmpeg binary
+os.environ["IMAGEIO_FFMPEG_EXE"] = ffmpeg.get_ffmpeg_exe()
+os.environ["FFMPEG_BINARY"] = ffmpeg.get_ffmpeg_exe()
+
 import streamlit as st
 import tempfile
 from video_audio import download_video, extract_audio

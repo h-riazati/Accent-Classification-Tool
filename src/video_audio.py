@@ -1,5 +1,9 @@
 import os
 import tempfile
+import imageio_ffmpeg as ffmpeg
+# Ensure MoviePy and ImageIO use the bundled ffmpeg binary
+os.environ["IMAGEIO_FFMPEG_EXE"] = ffmpeg.get_ffmpeg_exe()
+os.environ["FFMPEG_BINARY"] = ffmpeg.get_ffmpeg_exe()
 from yt_dlp import YoutubeDL
 # from moviepy.editor import VideoFileClip
 from moviepy import VideoFileClip
