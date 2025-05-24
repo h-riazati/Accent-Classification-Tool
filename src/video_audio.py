@@ -83,15 +83,18 @@ def download_video_via_ytdlp(url: str, dest_folder: str) -> str:
 
 
 def extract_audio(video_path: str, wav_path: str, sample_rate: int = 16000):
-    # clip = VideoFileClip(video_path)
-    # clip.audio.write_audiofile(wav_path, fps=sample_rate)#, verbose=False, logger=None)
-    # clip.close()
-    cmd = [ffmpeg_path,
-           '-y',  # overwrite
-           '-i', video_path,
-           '-vn',  # no video
-           '-acodec', 'pcm_s16le',  # WAV format
-           '-ar', str(sample_rate),
-           '-ac', '1',  # mono
-           wav_path]
-    subprocess.run(cmd, check=True)
+    try:
+        # clip = VideoFileClip(video_path)
+        # clip.audio.write_audiofile(wav_path, fps=sample_rate)#, verbose=False, logger=None)
+        # clip.close()
+        cmd = [ffmpeg_path,
+               '-y',  # overwrite
+               '-i', video_path,
+               '-vn',  # no video
+               '-acodec', 'pcm_s16le',  # WAV format
+               '-ar', str(sample_rate),
+               '-ac', '1',  # mono
+               wav_path]
+        subprocess.run(cmd, check=True)
+    except Exception as e:
+        print(f'\n\nFailed to extract audio: {e}\n\n')
