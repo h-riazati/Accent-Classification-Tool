@@ -21,3 +21,5 @@ streamlit run src/app.py
 ```bash
 pytest
 ```
+## Live Demo
+Try it out here: https://h-riazati-accent-classification-tool-srcapp-ykshf4.streamlit.app/
