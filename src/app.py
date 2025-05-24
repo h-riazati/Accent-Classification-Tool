@@ -55,12 +55,14 @@ if st.button("Analyze Accent"):
                 wav_path = tmpdir + '/audio.wav'
                 # Extract only the selected segment
                 extract_audio(video_file, wav_path)#, start_time=min_time, end_time=max_time)
-
+                print(f'audio was extracted to {wav_path}')
                 # Read audio and slice by user-specified time range
                 sample_rate, data = wav.read(wav_path)
+                print(f'rate: {sample_rate}, length: {len(data)}')
                 start_idx = int(min_time * sample_rate)
                 end_idx = int(max_time * sample_rate)
                 segment = data[start_idx:end_idx]
+                print(f'\tlength: {len(segment)}')
                 # Write segment to a new WAV
                 wav.write(wav_path, sample_rate, segment)
 
